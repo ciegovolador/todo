@@ -1,0 +1,38 @@
+extends layout
+
+block navbar 
+  nav(class= "navbar navbar-dark bg-dark shadow-sm")
+    a(class="navbar-brand" href="#") Todo List
+    input(class="col-sm-4" type="text" ng-model="yourName" placeholder="Name")
+
+block content
+  
+  
+  h2 Hello {{yourName}}!
+  h2 Welcome to your #{title}
+  h3 hola
+
+block todo 
+    div(class="row" ng-controller="TodoListController as todoList")
+      form( class="card col-sm-6" ng-submit="todoList.createTodo()")
+        input( type="text" ng-model="todoList.todoText"  size="30" placeholder="add new todo here")
+        input(class="btn-primary" type="submit" value="add")
+        div(class="row")
+        span(class="col-sm-4") {{todoList.remaining()}} of {{todoList.todos.length}} remaining
+          a(class="btn btn-primary " href="" ng-click="todoList.archive() ")  archive
+          a(class="btn btn-primary " href="" ng-click="todoList.save() ")  save
+      
+      
+      ul(class="list-group col-sm-6")
+        li(class="list-group-item list-group-item-action" ng-repeat="todo in todoList.todos")
+          
+          label(class="checkbox")
+            input(type="checkbox" ng-model="todo.done")   
+            
+            //a(class="btn btn-success" href="" ng-click="todoList.check()") done
+            span(class="done-{{todo.done}}") &nbsp; {{todo.name}}
+          
+    
+      
+block foot
+
