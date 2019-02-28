@@ -6,22 +6,20 @@ block navbar
     input(class="col-sm-4 border-top-0 border-left-0 border-rigth-0" type="text" ng-model="yourName" placeholder="Name")
 
 block content
-  
-  
-  h2 Hello {{yourName}}!
-  h2 Welcome to your #{title}
 
 
 block todo 
     div(class="row" ng-controller="TodoListController as todoList")
-      span(class="card col-sm-2") {{yourName}}
-        p Get things done!
+      span(class="card col-sm-2") Hello {{yourName}}
+        p Welcome to this todo list!
+        p are you ready to get things done
         div(class="row")
         span {{todoList.remaining()}} of {{todoList.todos.length}} remaining
-        a(class="btn btn-primary " href="" ng-click="todoList.archive() ")  archive
-        a(class="btn btn-primary " href="" ng-click="todoList.save() ")  save
+        a(class="btn btn-primary " href="" ng-click="todoList.archive() ")  Clear things done!
+        //a(class="btn btn-primary " href="" ng-click="todoList.save() ")  save
       
       form( class="card col-sm-4" ng-submit="todoList.createTodo()")
+        span  &nbsp; &nbsp; &nbsp; &nbsp;
         input(class="border-top-0 border-left-0 border-rigth-0" type="text" ng-model="todoList.todoName"  size="30" placeholder="add new todo here")
         //input(class="btn-primary" type="submit" value="add")
       //div(class="card col-sm-4")
