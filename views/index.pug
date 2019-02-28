@@ -3,14 +3,14 @@ extends layout
 block navbar 
   nav(class= "navbar navbar-dark bg-dark shadow-sm")
     a(class="navbar-brand" href="#") Todo List
-    input(class="col-sm-4 border-top-0 border-left-0 " type="text" ng-model="yourName" placeholder="Name")
+    input(class="col-sm-4 border-top-0 border-left-0 " type="text" ng-model="userName" placeholder="Name")
 
 block content
 
 
 block todo 
     div(class="row" ng-controller="TodoListController as todoList")
-      span(class="card col-sm-2") Hello {{yourName}}
+      span(class="card col-sm-2") Hello {{userName}}
         p Welcome to this todo list!
         p are you ready to get things done
         div(class="row")

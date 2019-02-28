@@ -21,20 +21,16 @@ fetch('https://todo-ciegovolador.c9users.io/api/tasks')
 
 let genID = () =>
 {
-  
-  let id = Math.random(Date.now()).toString(36).substr(2, 3) + '-' + Date.now()
-  console.log(Date.now())
-  console.log(id)
+  let id = '_' + Math.random(Date.now()).toString(36).substr(2, 9) 
   return(id)
 }
 
-console.log(genID())
 
 angular.module('todoApp', [])
   
-  .controller('TodoListController', function() {
+  .controller('TodoListController', function($scope) {
    var todoList = this;
-   todoList.todos = JSON.parse(localStorage.getItem('mauro'))
+   todoList.todos = JSON.parse(localStorage.getItem('todoList'))
    
 
     todoList.createTodo = () => {
@@ -53,7 +49,7 @@ angular.module('todoApp', [])
     };
 
     todoList.save = () => {
-      localStorage.setItem('mauro', JSON.stringify(todoList.todos))
+      localStorage.setItem('todoList', JSON.stringify(todoList.todos))
     };
     
     todoList.check = () => {

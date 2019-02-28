@@ -8,7 +8,7 @@ html(ng-app="todoApp")
     script( src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js")
     script(src="/javascripts/todo.js")
-  body
+  body(ng-controller="TodoListController as todoList")
     
     block navbar
     
