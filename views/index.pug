@@ -3,7 +3,7 @@ extends layout
 block navbar 
   nav(class= "navbar navbar-dark bg-dark shadow-sm")
     a(class="navbar-brand" href="#") Todo List
-    input(class="col-sm-4" type="text" ng-model="yourName" placeholder="Name")
+    input(class="col-sm-4 border-top-0 border-left-0 border-rigth-0" type="text" ng-model="yourName" placeholder="Name")
 
 block content
   
@@ -22,7 +22,7 @@ block todo
         a(class="btn btn-primary " href="" ng-click="todoList.save() ")  save
       
       form( class="card col-sm-4" ng-submit="todoList.createTodo()")
-        input( type="text" ng-model="todoList.todoName"  size="30" placeholder="add new todo here")
+        input(class="border-top-0 border-left-0 border-rigth-0" type="text" ng-model="todoList.todoName"  size="30" placeholder="add new todo here")
         //input(class="btn-primary" type="submit" value="add")
       //div(class="card col-sm-4")
         div(class="row")
@@ -38,7 +38,7 @@ block todo
             span  &nbsp; &nbsp; &nbsp; &nbsp; 
             //a(class="btn btn-success" href="" ng-click="todoList.check()") done
             //span(class="done-{{todo.done}}") &nbsp; {{todo.name}}
-            input(class="done-{{todo.done}}" id="{{todo.id}}" ng-model= "todo.name" ng-keyup="todoList.save()" type="text" )
+            input(class="done-{{todo.done}} border-0" id="{{todo.id}}" ng-model= "todo.name" ng-keyup="todoList.save()" type="text" )
             //a(class="btn btn-primary " href="" ng-click="todoList.update(todo.id, todo.name)") update
     
       
