@@ -24,7 +24,7 @@ angular.module('todoApp', [])
 
     todoList.createTodo = () => {
       todoList.todos.push({id: '_' + Math.random().toString(36).substr(2, 9), name:todoList.todoName, done:false});
-      todoList.todoText = '';
+      todoList.todoName = '';
       todoList.save();
     };
     
