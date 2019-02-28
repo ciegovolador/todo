@@ -3,8 +3,8 @@
 /*global localStorage*/
 
 
-
 /*
+
 fetch('https://todo-ciegovolador.c9users.io/api/tasks')
   .then( response => response.json())
   
@@ -21,10 +21,9 @@ fetch('https://todo-ciegovolador.c9users.io/api/tasks')
 
 let genID = () =>
 {
-  let n = Math.floor(Math.random() * 11);
-  let k = Math.floor(Math.random() * 1000000);
-  let m = String.fromCharCode(n) + k;
-  let id ='_' + Math.random(m).toString(36).substr(2, 9)
+  
+  let id = Math.random(Date.now()).toString(36).substr(2, 3) + '-' + Date.now()
+  console.log(Date.now())
   console.log(id)
   return(id)
 }

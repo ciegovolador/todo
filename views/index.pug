@@ -29,7 +29,7 @@ block todo
         
       
       ul(class="list-group col-sm-6")
-        li(class="list-group-item list-group-item-action" ng-repeat="todo in todoList.todos")
+        li(class="list-group-item list-group-item-action" ng-repeat="todo in todoList.todos track by $index")
           
           label(class="checkbox")
             input(type="checkbox" ng-model="todo.done")   
