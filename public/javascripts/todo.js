@@ -1,6 +1,9 @@
 /*global angular*/
 /*global fetch*/
 /*global localStorage*/
+
+
+
 /*
 fetch('https://todo-ciegovolador.c9users.io/api/tasks')
   .then( response => response.json())
@@ -16,14 +19,28 @@ fetch('https://todo-ciegovolador.c9users.io/api/tasks')
   */
 
 
+let genID = () =>
+{
+  let n = Math.floor(Math.random() * 11);
+  let k = Math.floor(Math.random() * 1000000);
+  let m = String.fromCharCode(n) + k;
+  let id ='_' + Math.random(m).toString(36).substr(2, 9)
+  console.log(id)
+  return(id)
+}
+
+console.log(genID())
+
 angular.module('todoApp', [])
   
   .controller('TodoListController', function() {
    var todoList = this;
    todoList.todos = JSON.parse(localStorage.getItem('mauro'))
+   
 
     todoList.createTodo = () => {
-      todoList.todos.push({id: '_' + Math.random().toString(36).substr(2, 9), name:todoList.todoName, done:false});
+      
+      todoList.todos.push({id: genID(), name:todoList.todoName, done:false});
       todoList.todoName = '';
       todoList.save();
     };

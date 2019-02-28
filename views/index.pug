@@ -3,7 +3,7 @@ extends layout
 block navbar 
   nav(class= "navbar navbar-dark bg-dark shadow-sm")
     a(class="navbar-brand" href="#") Todo List
-    input(class="col-sm-4 border-top-0 border-left-0 border-rigth-0" type="text" ng-model="yourName" placeholder="Name")
+    input(class="col-sm-4 border-top-0 border-left-0 " type="text" ng-model="yourName" placeholder="Name")
 
 block content
 
@@ -20,7 +20,7 @@ block todo
       
       form( class="card col-sm-4" ng-submit="todoList.createTodo()")
         span  &nbsp; &nbsp; &nbsp; &nbsp;
-        input(class="border-top-0 border-left-0 border-rigth-0" type="text" ng-model="todoList.todoName"  size="30" placeholder="add new todo here")
+        input(class="border-top-0 border-left-0" type="text" ng-model="todoList.todoName"  size="30" placeholder="add new todo here")
         //input(class="btn-primary" type="submit" value="add")
       //div(class="card col-sm-4")
         div(class="row")
