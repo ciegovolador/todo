@@ -10,28 +10,36 @@ block content
   
   h2 Hello {{yourName}}!
   h2 Welcome to your #{title}
-  h3 hola
+
 
 block todo 
     div(class="row" ng-controller="TodoListController as todoList")
-      form( class="card col-sm-6" ng-submit="todoList.createTodo()")
-        input( type="text" ng-model="todoList.todoText"  size="30" placeholder="add new todo here")
-        input(class="btn-primary" type="submit" value="add")
+      span(class="card col-sm-2") {{yourName}}
+        p Get things done!
         div(class="row")
-        span(class="col-sm-4") {{todoList.remaining()}} of {{todoList.todos.length}} remaining
-          a(class="btn btn-primary " href="" ng-click="todoList.archive() ")  archive
-          a(class="btn btn-primary " href="" ng-click="todoList.save() ")  save
+        span {{todoList.remaining()}} of {{todoList.todos.length}} remaining
+        a(class="btn btn-primary " href="" ng-click="todoList.archive() ")  archive
+        a(class="btn btn-primary " href="" ng-click="todoList.save() ")  save
       
+      form( class="card col-sm-4" ng-submit="todoList.createTodo()")
+        input( type="text" ng-model="todoList.todoName"  size="30" placeholder="add new todo here")
+        //input(class="btn-primary" type="submit" value="add")
+      //div(class="card col-sm-4")
+        div(class="row")
+          input( type="text" ng-model="todoList.todoName" placeholder="add new todo here")
+          a(class="btn btn-primary" href="" ng-click="todoList.createTodo()") +
+        
       
       ul(class="list-group col-sm-6")
         li(class="list-group-item list-group-item-action" ng-repeat="todo in todoList.todos")
           
           label(class="checkbox")
             input(type="checkbox" ng-model="todo.done")   
-            
+            span  &nbsp; &nbsp; &nbsp; &nbsp; 
             //a(class="btn btn-success" href="" ng-click="todoList.check()") done
-            span(class="done-{{todo.done}}") &nbsp; {{todo.name}}
-          
+            //span(class="done-{{todo.done}}") &nbsp; {{todo.name}}
+            input(class="done-{{todo.done}}" id="{{todo.id}}" ng-model= "todo.name" ng-keyup="todoList.save()" type="text" )
+            //a(class="btn btn-primary " href="" ng-click="todoList.update(todo.id, todo.name)") update
     
       
 block foot
